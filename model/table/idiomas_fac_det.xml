@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : margenes_imp_prov.xml
+    Description:
+        Estructura de la tabla idiomas_fac_det.
+-->
+<tabla>
+    <columna>
+      <nombre>abreviatura</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>idioma</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>activo</nombre>
+      <tipo>boolean</tipo>
+      <defecto>true</defecto>
+   </columna>
+   <restriccion>
+      <nombre>idioma_fact_det_pkey</nombre>
+      <consulta>PRIMARY KEY (abreviatura)</consulta>
+   </restriccion>
+</tabla>

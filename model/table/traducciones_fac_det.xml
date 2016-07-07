@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : margenes_imp_prov.xml
+    Description:
+        Estructura de la tabla idiomas_fac_det.
+-->
+<tabla>
+    <columna>
+      <nombre>abreviatura</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>factura</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>pagina</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>fecha</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>ncliente</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>formadepago</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>albaranabre</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>descripcion</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>cantidadabre</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>precio</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>impuesto</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>importe</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>neto</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>recequiv</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>irpf</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>total</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>telefono</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>fax</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   <columna>
+      <nombre>descuentoabre</nombre>
+      <tipo>character varying(30)</tipo>
+   </columna>
+   
+</tabla>

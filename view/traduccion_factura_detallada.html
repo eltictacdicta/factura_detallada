@@ -1,0 +1,107 @@
+{include="header"}
+
+<br/>
+
+<div class="container">
+   <div class="row">
+      <div class="col-xs-6">
+          <a href="../index.php?page=idioma_factura_detallada&abreviatura={$fsc->idioma->abreviatura}" class="btn btn-sm btn-default" title="Recargar la página">
+            <span class="glyphicon glyphicon-refresh"></span>
+         </a>
+         <a href="./index.php?page=idioma_factura_detallada" class="btn btn-sm btn-default">
+            <span class="glyphicon glyphicon-arrow-left"></span> &nbsp; Atrás
+         </a>
+      </div>
+      <div class="col-xs-6 text-right">
+         <h2 style="margin-top: 0px;">Traduccion de {$fsc->idioma->idioma}</h2>
+      </div>
+   </div>
+    <div class="row">
+      <div class="col-sm-12">
+         <ul id="tab_opciones" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+               <a href="#margenes" aria-controls="margenes" role="tab" data-toggle="tab">
+                  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; Valores
+               </a>
+            </li>
+            
+      </div>
+   </div>
+   <div role="tabpanel" class="tab-pane" id="margenes">
+         <div class="table-responsive">
+            <form action="./index.php?page=idioma_factura_detallada&abreviatura={$fsc->idioma->abreviatura}" method="post" class="form">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th class="text-left">Campo</th>
+                     <th class="text-left">Valor</th>
+                  </tr>
+               </thead>
+
+                  <tr>
+                      <td>factura</td><td><input type="text" name="factura" value="{$fsc->traduccion->factura}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>pagina</td><td><input type="text" name="pagina" value="{$fsc->traduccion->pagina}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>fecha</td><td><input type="text" name="fecha" value="{$fsc->traduccion->fecha}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>   
+                     <td>ncliente</td><td><input type="text" name="ncliente" value="{$fsc->traduccion->ncliente}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>formadepago</td><td><input type="text" name="formadepago" value="{$fsc->traduccion->formadepago}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>   
+                     <td>albaranabre</td><td><input type="text" name="albaranabre" value="{$fsc->traduccion->albaranabre}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>descripcion</td><td><input type="text" name="descripcion" value="{$fsc->traduccion->descripcion}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>cantidadabre</td><td><input type="text" name="cantidadabre" value="{$fsc->traduccion->cantidadabre}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>precio</td><td><input type="text" name="precio" value="{$fsc->traduccion->precio}" class="form-control" autocomplete="off"/></td>
+                   </tr>
+                  <tr>
+                     <td>impuesto</td><td><input type="text" name="impuesto" value="{$fsc->traduccion->impuesto}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>importe</td><td><input type="text" name="importe" value="{$fsc->traduccion->importe}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>neto</td><td><input type="text" name="neto" value="{$fsc->traduccion->neto}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>recequiv</td><td><input type="text" name="recequiv" value="{$fsc->traduccion->recequiv}" class="form-control" autocomplete="off"/></td>
+                   </tr>
+                  <tr>
+                     <td>irpf</td><td><input type="text" name="irpf" value="{$fsc->traduccion->irpf}" class="form-control" autocomplete="off"/></td>
+                   </tr>
+                  <tr>
+                     <td>total</td><td><input type="text" name="total" value="{$fsc->traduccion->total}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>telefono</td><td><input type="text" name="telefono" value="{$fsc->traduccion->telefono}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>fax</td><td><input type="text" name="fax" value="{$fsc->traduccion->fax}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+                  <tr>
+                     <td>Descuento abreviado</td><td><input type="text" name="descuentoabre" value="{$fsc->traduccion->descuentoabre}" class="form-control" autocomplete="off"/></td>
+                  </tr>
+            </table>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-sm btn-primary" onclick="this.disabled = true;this.form.submit();" title="Guardar">
+                <span class="glyphicon glyphicon-floppy-disk">&nbsp;Guardar</span>
+                </button>
+            </div>
+           </form>
+         </div>
+      </div>
+
+</div>
+
+{include="footer"}

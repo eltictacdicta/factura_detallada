@@ -1,0 +1,110 @@
+{include="header"}
+<script type="text/javascript" src="plugins/SAT/view/jscolor/jscolor.js"></script>
+<script type="text/javascript">
+   function eliminar_idioma(abreviatura)
+   {
+      if( confirm("¿Realmente desea eliminar el margen "+abreviatura+"?") )
+         window.location.href = '{$fsc->url()}&delete_idioma='+abreviatura+'#margenes';
+   }
+   /*$(document).ready(function () {
+      if(window.location.hash.substring(1) == 'estados')
+      {
+         $('#tab_opciones a[href="#estados"]').tab('show');
+      }
+   });*/
+</script>
+
+<br/>
+
+<div class="container">
+   <div class="row">
+      <div class="col-xs-6">
+         <a href="{$fsc->url()}" class="btn btn-sm btn-default" title="Recargar la página">
+            <span class="glyphicon glyphicon-refresh"></span>
+         </a>
+         <a href="index.php?page=importador_proveedores" class="btn btn-sm btn-default">
+            <span class="glyphicon glyphicon-arrow-left"></span> &nbsp; Atrás
+         </a>
+      </div>
+      <div class="col-xs-6 text-right">
+         <h2 style="margin-top: 0px;">Idiomas</h2>
+      </div>
+   </div>
+    <div class="row">
+      <div class="col-sm-12">
+         <ul id="tab_opciones" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+               <a href="#margenes" aria-controls="margenes" role="tab" data-toggle="tab">
+                  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; Idiomas
+               </a>
+            </li>
+            
+      </div>
+   </div>
+   <div role="tabpanel" class="tab-pane" id="margenes">
+         <div class="table-responsive">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th class="text-left">Abreviatura</th>
+                     <th class="text-left">Idioma</th>
+                     <th class="text-left">¿Activo?</th>
+                     <th class="text-left">Acciones</th>
+                  </tr>
+               </thead>
+               {loop="$fsc->idioma->all()"}
+               <form action="{$fsc->url()}#margenes" method="post" class="form">
+                  <tr>
+                     <td><input type="text" name="abreviatura" value="{$value->abreviatura}" class="form-control" autocomplete="off"/></td>
+                     <td><input type="text" name="idioma" value="{$value->idioma}" class="form-control" autocomplete="off"/></td>
+                     <td class="text-center">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="activo" value="TRUE" {if="$value->activo"} checked="checked"{/if}/>
+                            </label>
+                        </div>
+                     </td>
+                     <td class="text-right">
+                        <div class="btn-group">
+                            <a href="./index.php?page=idioma_factura_detallada&abreviatura={$value->abreviatura}" class="btn btn-sm btn-primary" title="Editar">
+                              <span class="glyphicon glyphicon-pencil"></span>
+                           </a>
+                           <a class="btn btn-sm btn-danger" href="#" onclick="eliminar_idioma('{$value->abreviatura}')" title="Eliminar">
+                              <span class="glyphicon glyphicon-trash"></span>
+                           </a>
+
+                           <button type="submit" class="btn btn-sm btn-primary" onclick="this.disabled = true;this.form.submit();" title="Guardar">
+                              <span class="glyphicon glyphicon-floppy-disk"></span>
+                           </button>
+                        </div>
+                     </td>
+                  </tr>
+               </form>
+               {/loop}
+               <form action="{$fsc->url()}#margenes" method="post" class="form">
+                  <tr class="bg-info">
+                     <td><input type="text" name="abreviatura" value="" class="form-control" autocomplete="off"/></td>
+                     <td><input type="text" name="idioma" value="" class="form-control" autocomplete="off"/></td>
+                     <td class="text-center">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="activo" value="TRUE"/>
+                            </label>
+                        </div>
+                     </td>
+                     <td class="text-right">
+                        <div class="btn-group">
+                           <button type="submit" class="btn btn-sm btn-primary" onclick="this.disabled = true;this.form.submit();" title="Guardar">
+                              <span class="glyphicon glyphicon-floppy-disk"></span>
+                           </button>
+                        </div>
+                     </td>
+                  </tr>
+               </form>
+            </table>
+         </div>
+      </div>
+
+</div>
+
+{include="footer"}

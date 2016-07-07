@@ -4,7 +4,7 @@
  * This file is part of FacturaSctipts
  * Copyright (C) 2016   César Sáez Rodríguez    NATHOO@lacalidad.es
  * Copyright (C) 2016   Carlos García Gómez     neorazorx@gmail.com
- *
+ * Copyright (C) 2016   Javier Trujillo Jimenez    javier.trujillo.jimenez@gmail.com
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the

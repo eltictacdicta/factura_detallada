@@ -31,7 +31,16 @@ class PDF_MC_Table extends FPDF {
    var $angle = 0;
    var $lineaactual = 0;
    var $piepagina = false;
-
+   var $abreviatura;
+   var $etiquetaneto;
+   var $etiquetatelefono;
+   var $etiquetafecha;
+   var $etiquetancliente;
+   var $etiquetapagina;
+   var $etiquetarecequiv;
+   var $etiquetaimporte;
+   var $etiquetaformadepago;
+   var $total;
    function Setdatoscab($v) {
       //Set the array
       $this->datoscab = $v;
@@ -149,7 +158,7 @@ class PDF_MC_Table extends FPDF {
       $cliente .= $this->fdf_direccion . "\n";
       $cliente .= $this->fdf_codpostal . " - ";
       $cliente .= $this->fdf_ciudad . " (" . $this->fdf_provincia . ")\n";
-      $cliente .= "Tlf: " . $this->fdc_telefono1;
+      $cliente .= $this->etiquetatelefono.": " . $this->fdc_telefono1;
       if ($this->fdc_telefono2) {
          $cliente .= " - " . $this->fdc_telefono2 . "\n";
       } else {
@@ -573,7 +582,7 @@ class PDF_MC_Table extends FPDF {
       $this->Line($r1, $mid, $r2, $mid);
       $this->SetXY($r1 + ($r2 - $r1) / 2 - 5, $y1 + 3);
       $this->SetFont("Arial", "B", 9);
-      $this->Cell(10, 5, "FECHA", 0, 0, "C");
+      $this->Cell(10, 5, $this->etiquetafecha , 0, 0, "C");
       $this->SetXY($r1 + ($r2 - $r1) / 2 - 5, $y1 + 9);
       $this->SetFont("Arial", "", 9);
       $this->Cell(10, 5, $date, 0, 0, "C");
@@ -589,7 +598,7 @@ class PDF_MC_Table extends FPDF {
       $this->Line($r1, $mid, $r2, $mid);
       $this->SetXY($r1 + ($r2 - $r1) / 2 - 5, $y1 + 3);
       $this->SetFont("Arial", "B", 9);
-      $this->Cell(10, 5, 'N' . chr(176) . ' de CLIENTE', 0, 0, "C");
+      $this->Cell(10, 5, $this->etiquetancliente  , 0, 0, "C");
       $this->SetXY($r1 + ($r2 - $r1) / 2 - 5, $y1 + 9);
       $this->SetFont("Arial", "", 9);
       $this->Cell(10, 5, $ref, 0, 0, "C");
@@ -605,7 +614,7 @@ class PDF_MC_Table extends FPDF {
       $this->Line($r1, $mid, $r2, $mid);
       $this->SetXY($r1 + ($r2 - $r1) / 2 - 5, $y1 + 3);
       $this->SetFont("Arial", "B", 9);
-      $this->Cell(10, 5, "PAGINA", 0, 0, "C");
+      $this->Cell(10, 5, $this->etiquetapagina, 0, 0, "C");
       $this->SetXY($r1 + ($r2 - $r1) / 2 - 3, $y1 + 9);
       $this->SetFont("Arial", "", 9);
       $this->Cell(10, 5, $page, 0, 0, "C");
@@ -632,7 +641,7 @@ class PDF_MC_Table extends FPDF {
       $this->Line($r1, $mid, $r2, $mid);
       $this->SetXY($r1 + ($r2 - $r1) / 2 - 5, $y1 + 1);
       $this->SetFont("Arial", "B", 9);
-      $this->Cell(10, 4, "FORMA DE PAGO", 0, 0, "C");
+      $this->Cell(10, 4, $this->etiquetaformadepago , 0, 0, "C");
       $this->SetXY($r1 + ($r2 - $r1) / 2 - 5, $y1 + 5);
       $this->SetFont("Arial", "", 9);
       $this->Cell(10, 5, $mode, 0, 0, "C");
@@ -737,7 +746,7 @@ class PDF_MC_Table extends FPDF {
       $this->Cell(30, 4, $this->fdf_divisa, 0, 0, "C");
       $this->SetFont("Arial", "B", 8);
       $this->SetXY($r1, $y1 + 7);
-      $this->Cell(15, 4, "NETO", 0, 0, "C");
+      $this->Cell(15, 4, $this->etiquetaneto, 0, 0, "C");
 
       // Total Neto de la pagina
       $this->SetFont("Arial", "", 9);
@@ -767,15 +776,15 @@ class PDF_MC_Table extends FPDF {
       $this->Line($r1 + 83, $y1 + 4, $r1 + 83, $y2);
       $this->Line($r1 + 101, $y1, $r1 + 101, $y2);
       $this->SetXY($r1, $y1);
-      $this->Cell(26, 4, "NETO", 0, '', "C");
+      $this->Cell(26, 4, $this->etiquetaneto , 0, '', "C");
       $this->SetX($r1 + 26);
       $this->Cell(25, 4, FS_IVA, 0, '', "C");
       $this->SetX($r1 + 51);
-      $this->Cell(25, 4, "REC. EQUIV.", 0, '', "C");
+      $this->Cell(25, 4, $this->etiquetarecequiv, 0, '', "C");
       $this->SetX($r1 + 76);
       $this->Cell(25, 4, FS_IRPF, 0, '', "C");
       $this->SetX($r1 + 101);
-      $this->Cell(24, 4, "IMPORTES", 0, '', "C");
+      $this->Cell(24, 4, $this->etiquetaimporte , 0, '', "C");
 
       $r1 = $this->w - 70;
       $r2 = $r1 + 60;
@@ -790,7 +799,7 @@ class PDF_MC_Table extends FPDF {
       $this->Cell(30, 4, $this->fdf_divisa, 0, 0, "C");
       $this->SetFont("Arial", "B", 8);
       $this->SetXY($r1, $y1 + 7);
-      $this->Cell(15, 4, "TOTAL", 0, 0, "C");
+      $this->Cell(15, 4, $this->total, 0, 0, "C");
       $this->SetLineWidth(0.1);
 
       // Total factura
@@ -801,7 +810,11 @@ class PDF_MC_Table extends FPDF {
       // Total factura en texto		
       $this->SetFont("Arial", "B", 6);
       $this->SetXY($r1 + 16, $y1 + 13);
-      $texto = $this->numtoletras($this->fdf_textotal);
+      $texto="";
+      if($this->abreviatura=="es_ES")
+      {
+        $texto = $this->numtoletras($this->fdf_textotal);
+      }
       $this->MultiCell(43, 3, $texto, 0, 'C');
    }
 
